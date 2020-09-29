@@ -17,4 +17,5 @@ fighters.forEach((element) => {
 });
 
 
+
 }
