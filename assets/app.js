@@ -1,4 +1,6 @@
 window.onload = function(){
+
+// --------- defining the characters/fighters
 var aang = {name:"Aang", alignment: "hero", pic: "https://i.insider.com/5ebdbc8c3ad8612a1c7aa143?width=856&format=jpeg"};
 var sokka = {name:"Sokka", alignment:"hero", pic:"https://vignette.wikia.nocookie.net/avatar/images/e/e6/Sokka_with_war_paint.png/revision/latest/scale-to-width-down/340?cb=20130822162323"};
 var katara  = {name:"Katara", alignment: "hero", pic:"https://static1.srcdn.com/wordpress/wp-content/uploads/2020/05/Katara-Avatar-Featured.jpg"};
@@ -8,7 +10,7 @@ var azula = {name:"Azula", alignment: "villian", pic:"https://vignette.wikia.noc
 var tiLee = {name:"Ti Lee", alignment:"villian", pic:"https://i.ytimg.com/vi/soGepprLqbc/maxresdefault.jpg"};
 var mai = {name:"Mai", alignment:"villian", pic:"https://vignette.wikia.nocookie.net/p__/images/0/0d/Mai_%28AVATAR%29.png/revision/latest?cb=20140722120237&path-prefix=protagonist"};
 
-
+// ----- looping through each fighter and showing on DOM
 var fighters = [aang, sokka, katara, toph, ozai, azula, tiLee, mai]
 var fighter = "";
 
@@ -19,10 +21,24 @@ fighters.forEach((element) => {
 }); 
 
 
+var heroCounter = 0;
+var villianCounter = 0;
+
+// ----------- able to click fighter
 $(".fighter").click(function(){
     var alignment = this.getAttribute("data")
-    console.log("this was clicked", this)
-    console.log("hero?", alignment)
+    console.log("le alignment", alignment)
+
+    if (alignment === "hero"){
+        console.log("yay hero!!")
+        heroCounter ++;
+        $("#heroCount").html("Heros:" +" "+  heroCounter +" "+ "/4")
+    }
+    else{
+        console.log("flip... its a villian")
+        villianCounter ++;
+        $("#villianCount").html("Villians:" +" "+  villianCounter +" "+ "/4")
+    }
     
 })
 
