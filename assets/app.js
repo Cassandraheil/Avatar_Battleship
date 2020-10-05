@@ -10,17 +10,18 @@ var mai = {name:"Mai", alignment:"villian", pic:"https://vignette.wikia.nocookie
 
 
 var fighters = [aang, sokka, katara, toph, ozai, azula, tiLee, mai]
+var fighter = "";
 
 fighters.forEach((element) => {
-    console.log(element),
-    $("#gameArea").append("<h3 class='fighter'>",element.name,"</h3>")
-    $("#gameArea").append("<img class='fighter' src="+element.pic+" alt='charater in Avatar' height='200' width='200'>")
+    fighter += "<img class='fighter' src="+element.pic+" alt='charater in Avatar' height='200' width='200'>"
+    
 }); 
+$("#gameArea").html(fighter)
 
+
+$(".fighter").click(function(){
+    console.log("this was clicked", fighters)
+})
 
 
 }
-
-$(".fighter").click(function(){
-    console.log("this was clicked")
-})
