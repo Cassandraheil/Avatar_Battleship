@@ -13,14 +13,17 @@ var fighters = [aang, sokka, katara, toph, ozai, azula, tiLee, mai]
 var fighter = "";
 
 fighters.forEach((element) => {
-    fighter += "<img class='fighter' src="+element.pic+" alt='charater in Avatar' height='200' width='200'>"
-    
+    fighter += "<img class='fighter' src="+element.pic+" alt='"+element.name+"' height='200' width='200' data="+element.alignment+">"
+
+    $("#gameArea").html(fighter)
 }); 
-$("#gameArea").html(fighter)
 
 
 $(".fighter").click(function(){
-    console.log("this was clicked", fighters)
+    var alignment = this.getAttribute("data")
+    console.log("this was clicked", this)
+    console.log("hero?", alignment)
+    
 })
 
 
