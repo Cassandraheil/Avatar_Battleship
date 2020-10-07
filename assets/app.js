@@ -13,31 +13,41 @@ var mai = {name:"Mai", alignment:"villian", pic:"https://vignette.wikia.nocookie
 // ----- looping through each fighter and showing on DOM
 var fighters = [aang, sokka, katara, toph, ozai, azula, tiLee, mai]
 var fighter = "";
+var numVillians = 0;
+var numHeros = 0;
 
 fighters.forEach((element) => {
     fighter += "<img class='fighter' src="+element.pic+" alt='"+element.name+"' height='200' width='200' data="+element.alignment+">"
 
     $("#gameArea").html(fighter)
+
+    if (element.alignment === "hero"){
+        numHeros +=1;
+    }
+    else {
+        numVillians +=1;
+    };
 }); 
 
 
 var heroCounter = 0;
 var villianCounter = 0;
 
+
 // ----------- able to click fighter
 $(".fighter").click(function(){
     var alignment = this.getAttribute("data")
-    console.log("le alignment", alignment)
+    console.log("le numhero", numVillians)
 
     if (alignment === "hero"){
         console.log("yay hero!!")
         heroCounter ++;
-        $("#heroCount").html("Heros:" +" "+  heroCounter +" "+ "/4")
+        $("#heroCount").html("Heros:" +" "+  heroCounter +"/" + numHeros)
     }
     else{
         console.log("flip... its a villian")
         villianCounter ++;
-        $("#villianCount").html("Villians:" +" "+  villianCounter +" "+ "/4")
+        $("#villianCount").html("Villians:" +" "+  villianCounter +"/"+ numVillians)
     }
     
 })
